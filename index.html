@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>108793</title>
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+</head>
+<body>
+
+  <!-- 🔝 Header -->
+  <header>
+  <div class="header-left">
+    <div class="site-title">108793</div>
+  </div>
+  <div class="header-right">
+    <div class="line1">Welcome to the Anime Chat!</div>
+    <div class="line2">Poll updates every 24 hours</div>
+  </div>
+</header>
+
+<!-- 🛎️ Floating Notification Box -->
+<div id="floatingNotification" class="floating-note">
+  <span id="notificationText"></span>
+  <button id="closeFloatingNote" onclick="hideFloatingNotification()">✖</button>
+</div>
+
+
+  <!-- 🗳️ Poll + Winner -->
+  <section id="pollBox">
+    <div class="poll">
+      <div class="poll-question">🔥 Who’s stronger?</div>
+      <div class="poll-options">
+        <button onclick="vote('A')" id="btnA">Naruto</button>
+        <button onclick="vote('B')" id="btnB">Luffy</button>
+      </div>
+      <div class="poll-result">
+        <div class="bar">
+          <div id="barA" class="fill"></div>
+          <span id="percentA">0%</span>
+        </div>
+        <div class="bar">
+          <div id="barB" class="fill"></div>
+          <span id="percentB">0%</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 🏆 Winner (handled by JS) -->
+    <div id="winnerBox" class="winner" style="display: none;">
+      🏆 Yesterday's winner: <strong id="winnerName"></strong>
+      <button id="closePoll" onclick="hidePoll()">✖</button>
+    </div>
+  </section>
+
+  
+
+  <!-- 💬 Chat Area -->
+  <main>
+    <div id="chatBox" class="chat-box"></div>
+
+    <!-- 🌐 Global Chat Controls -->
+    <div id="chatControls" class="controls">
+      <input type="text" id="chatInput" placeholder="Type your message..." />
+      <button onclick="sendMessage()">Send</button>
+      <button onclick="startRandomChat()">Random Chat</button>
+    </div>
+
+    <!-- 🔐 Private Chat Controls -->
+    <div id="privateControls" class="controls" style="display:none;">
+      <input type="text" id="privateInput" placeholder="Private message..." />
+      <button onclick="sendPrivateMessage()">Send</button>
+      <button onclick="nextChat()">Next Chat</button>
+      <button onclick="leaveChat()">Leave</button>
+    </div>
+  </main>
+
+  <!-- 🔧 Firebase Config + Main Script -->
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyA48Idr5I5x7W9wlb775SJoQcslVd_uCR4",
+      authDomain: "anou-2c962.firebaseapp.com",
+      databaseURL: "https://anou-2c962-default-rtdb.asia-southeast1.firebasedatabase.app",
+      projectId: "anou-2c962",
+      storageBucket: "anou-2c962.firebasestorage.app",
+      messagingSenderId: "652772607259",
+      appId: "1:652772607259:web:d18c080aa5f741a2b6ffbe"
+    };
+
+    firebase.initializeApp(firebaseConfig);
+  </script>
+  <script src="main.js"></script>
+</body>
+</html>

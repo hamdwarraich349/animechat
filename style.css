@@ -1,0 +1,288 @@
+/* General Styling */
+body {
+  margin: 0;
+  font-family: 'Zen Maru Gothic', sans-serif;
+  background-color: #0f0f0f;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #151515;
+  padding: 10px 50px;        /* ✅ Increase space on both sides */
+  border-bottom: 2px solid #292929;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  box-sizing: border-box;    /* ✅ Ensures padding stays within width */
+}
+.header-left {
+  max-width: 60%;
+}
+
+/* Left side (site name) */
+.header-left .site-title {
+  font-size: 24px;
+  color: #ff5577;
+  font-weight: bold;
+}
+
+/* Right side (two lines) */
+.header-right {
+  text-align: right;
+  color: #ccc;
+  font-size: 12px;
+  line-height: 1.2;
+  max-width: 40%;             /* ✅ Limits size to avoid overflow */
+  word-break: break-word;     /* ✅ Break long text if needed */
+}
+
+
+.header-right .line1 {
+  font-weight: bold;
+  color: #fff;
+}
+
+.header-right .line2 {
+  font-style: italic;
+  color: #aaa;
+}
+
+
+.site-title {
+  font-size: 24px;
+  color: #ff5577;
+  font-weight: bold;
+}
+
+/* Poll and Winner */
+#pollBox {
+  position: fixed;
+  top: 60px;              /* below the header */
+  right: 20px;            /* float to right corner */
+  background: #1a1a1a;
+  padding: 15px;
+  border: 1px solid #444;
+  border-radius: 10px;
+  z-index: 9999;          /* stay above everything */
+  width: 300px;
+  box-shadow: 0 0 12px #000;
+}
+
+
+.poll {
+  max-width: 600px;
+  margin: auto;
+  text-align: center;
+}
+
+.poll-question {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.poll-options button {
+  background: #333;
+  color: #fff;
+  border: 1px solid #666;
+  padding: 8px 15px;
+  margin: 5px;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.poll-options button:hover {
+  background-color: #ff5577;
+  border-color: #ff5577;
+}
+
+.poll-result {
+  margin-top: 10px;
+}
+
+.bar {
+  display: flex;
+  align-items: center;
+  background: #333;
+  margin: 5px 0;
+  height: 20px;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.fill {
+  background: #ff5577;
+  height: 100%;
+  width: 0%;
+  transition: width 0.4s ease;
+}
+
+.bar span {
+  padding-left: 10px;
+  font-size: 12px;
+}
+
+/* Winner */
+.winner {
+  margin-top: 10px;
+  font-size: 14px;
+}
+.winner {
+  margin-top: 10px;
+  font-size: 14px;
+  text-align: center; /* ✅ Add this line */
+  color: #ffd700;     /* Optional: Golden color for emphasis */
+  font-weight: bold;  /* Optional: Make it stand out */
+}
+
+
+#closePoll {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background: transparent;
+  color: #fff;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+
+/* 🛎️ Floating Notification Styling */
+.floating-note {
+  position: fixed;
+  top: 60px; /* right below header */
+  left: 50%;
+  transform: translateX(-50%);
+  background: #1a1a1a;
+  color: #ff88aa;
+  padding: 10px 20px;
+  border-radius: 12px;
+  border: 1px solid #444;
+  box-shadow: 0 0 10px #000;
+  z-index: 9999;
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 14px;
+}
+
+.floating-note button {
+  background: transparent;
+  color: #ff88aa;
+  border: none;
+  font-size: 16px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+
+/* Chat Box */
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.chat-box {
+  flex: 1;
+  overflow-y: auto;
+  padding: 10px 20px;
+  margin-top: 60px;
+  scroll-behavior: smooth;
+
+  /* ✅ Hide scrollbar */
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;     /* Firefox */
+}
+
+.chat-box::-webkit-scrollbar {
+  display: none;             /* Chrome, Safari */
+}
+
+.msg {
+  background: #1f1f1f;
+  padding: 8px;
+  margin: 6px 0;
+  border-radius: 6px;
+  font-size: 14px;
+  word-break: break-word;
+}
+
+.msg .user {
+  font-weight: bold;
+  color: #ff88aa;
+}
+
+.msg button {
+  margin-left: 10px;
+  font-size: 12px;
+  padding: 4px 8px;
+  background: #444;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.msg button:hover {
+  background: #ff5577;
+}
+
+/* Input Controls */
+.controls {
+  display: flex;
+  padding: 10px;
+  border-top: 1px solid #333;
+  background: #111;
+}
+
+.controls input[type="text"] {
+  flex: 1;
+  padding: 8px;
+  font-size: 14px;
+  border: 1px solid #555;
+  border-radius: 4px;
+  background: #222;
+  color: #fff;
+  margin-right: 8px;
+}
+
+.controls button {
+  background: #ff5577;
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  font-size: 14px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.controls button:hover {
+  background: #ff3355;
+}
+
+/* Responsive Fixes */
+@media (max-width: 600px) {
+  .site-title {
+    font-size: 20px;
+  }
+
+  .poll-question {
+    font-size: 16px;
+  }
+
+  .controls button {
+    font-size: 12px;
+    padding: 6px 10px;
+  }
+}
+
